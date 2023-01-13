@@ -178,6 +178,7 @@ abstract class DelayAbstract
     /**
      * Get current environment.
      *
+     * @codeCoverageIgnore
      * @return string
      */
     protected function getEnvironment(): string

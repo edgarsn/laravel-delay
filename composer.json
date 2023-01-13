@@ -40,7 +40,9 @@
 		"phpstan": "phpstan analyse --memory-limit=256M",
 		"lint": "php-cs-fixer fix --diff --dry-run",
 		"fix-style": "php-cs-fixer fix",
-		"test": "phpunit --colors=always --verbose"
+		"test": "./vendor/bin/phpunit --colors=always --verbose",
+		"test-coverage": "php -dpcov.enabled=1 -dpcov.directory=src/ -dpcov.exclude=\"~vendor~\" ./vendor/bin/phpunit --colors=always --verbose --coverage-text",
+		"test-coverage-html": "php -dpcov.enabled=1 -dpcov.directory=src/ -dpcov.exclude=\"~vendor~\" ./vendor/bin/phpunit --colors=always --verbose --coverage-html phpunit-coverage"
 	},
 	"extra": {
 		"laravel": {

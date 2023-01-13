@@ -1,18 +1,18 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
-namespace Newman\LaravelDelay\Tests\Unit;
+namespace Newman\LaravelDelay\Tests;
 
 use Carbon\Carbon;
 use Newman\LaravelDelay\Contracts\DelayContract;
-use Newman\LaravelDelay\Tests\TestCase;
 
-class Delay extends TestCase
+class DelayTest extends TestCase
 {
     public function test_it_sleeps_for_given_time(): void
     {
 	$this->app->make(DelayContract::class)->for(5)->assertSleep()->assertSleepFor(5);
+	$this->app->make(DelayContract::class)->forMs(135)->assertSleep()->assertSleepForMiliseconds(135);
 	$this->app->make(DelayContract::class)->forMiliseconds(135)->assertSleep()->assertSleepForMiliseconds(135);
 	$this->app->make(DelayContract::class)->forMicroseconds(5432)->assertSleep()->assertSleepForMicroseconds(5432);
 
@@ -47,7 +47,7 @@ class Delay extends TestCase
 	    ->for(5)
 	    ->environments(['production', 'staging'])
 	    ->except(['development'])
-	    ->exceptWhen(fn () => false)
+	    ->exceptWhen(fn() => false)
 	    ->fakeEnvironment('production')
 	    ->assertSleep();
     }

@@ -11,6 +11,7 @@ class Delay extends DelayAbstract implements DelayContract
     /**
      * Go to sleep implementation.
      *
+     * @codeCoverageIgnore
      * @return void
      */
     protected function goToSleep(): void
