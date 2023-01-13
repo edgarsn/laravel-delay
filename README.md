@@ -15,7 +15,7 @@ Require the package via Composer:
 composer require newman/laravel-delay
 ```
 
-## Usage
+## :book: Usage
 
 ### Using as Trait
 
@@ -131,3 +131,13 @@ $this->delay()
     ->environments(['production', 'staging'])
     ->exceptWhen(fn () => Carbon::now()->hour == 10);
 ```
+
+## :handshake: Contributing
+
+We'll appreciate your collaboration to this package.
+
+When making pull requests, make sure:
+* All tests are passing: `composer test`
+* Test coverage is not reduced: `composer test-coverage`
+* There are no PHPStan errors: `composer phpstan`
+* Coding standard is followed: `composer lint` or `composer fix-style` to automatically fix it. 
