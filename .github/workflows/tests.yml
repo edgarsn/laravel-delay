@@ -15,8 +15,6 @@ jobs:
         exclude:
           - php: 8.2
             laravel: ^8.12
-          - php: 8.0
-            laravel: ^9.0
     name: PHP=${{ matrix.php }} LARAVEL=${{ matrix.laravel }}
     runs-on: ubuntu-latest
     env:
@@ -29,6 +27,8 @@ jobs:
         with:
           php-version: ${{ matrix.php }}
           coverage: xdebug
+
+      - run: composer require illuminate/contracts:${{ matrix.laravel }} --no-update
 
       - name: Get composer cache directory
         id: composercache
