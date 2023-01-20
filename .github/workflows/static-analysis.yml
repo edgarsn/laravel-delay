@@ -46,5 +46,5 @@ jobs:
           composer update --prefer-dist --no-interaction --no-progress
 
       - name: Check style
-        run: composer lint -- --no-progress
+        run: composer lint
 
