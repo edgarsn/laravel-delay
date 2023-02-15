@@ -5,7 +5,7 @@ Package which helps you to delay (sleep) your code for some time.
 ## Installation
 
 ### Requirements
-- Laravel 8.12+ / 9.0+
+- Laravel 8.12+, 9.0+, 10.0+
 - PHP 8.0
 
 ### Installation
