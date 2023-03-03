@@ -7,6 +7,7 @@ namespace Newman\LaravelDelay\Tests;
 use Newman\LaravelDelay\Contracts\DelayContract;
 use Newman\LaravelDelay\DelayFake;
 use Newman\LaravelDelay\DelayServiceProvider;
+use Newman\LaravelDelay\Facades\Delay;
 use Orchestra\Testbench\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase
@@ -22,6 +23,13 @@ abstract class TestCase extends BaseTestCase
     {
         return [
             DelayServiceProvider::class,
+        ];
+    }
+
+    protected function getPackageAliases($app): array
+    {
+        return [
+            'Delay' => Delay::class,
         ];
     }
 }
