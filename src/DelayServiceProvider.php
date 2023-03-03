@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Newman\LaravelDelay;
 
@@ -15,6 +15,6 @@ class DelayServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-	$this->app->bind(DelayContract::class, Delay::class);
+        $this->app->bind(DelayContract::class, Delay::class);
     }
 }

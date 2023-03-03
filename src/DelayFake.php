@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Newman\LaravelDelay;
 
@@ -24,9 +24,9 @@ class DelayFake extends DelayAbstract implements DelayContract
      */
     public function fakeEnvironment(string $environment): static
     {
-	$this->fakeEnvironment = $environment;
+        $this->fakeEnvironment = $environment;
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -36,9 +36,9 @@ class DelayFake extends DelayAbstract implements DelayContract
      */
     public function assertSleep(): static
     {
-	PHPUnit::assertTrue($this->_shouldSleep(), 'Expected to sleep, but it didn\'t');
+        PHPUnit::assertTrue($this->_shouldSleep(), 'Expected to sleep, but it didn\'t');
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -48,9 +48,9 @@ class DelayFake extends DelayAbstract implements DelayContract
      */
     public function assertNotSleep(): static
     {
-	PHPUnit::assertFalse($this->_shouldSleep(), 'Expected not to sleep, but it did.');
+        PHPUnit::assertFalse($this->_shouldSleep(), 'Expected not to sleep, but it did.');
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -61,9 +61,9 @@ class DelayFake extends DelayAbstract implements DelayContract
      */
     public function assertSleepFor(int $seconds): static
     {
-	PHPUnit::assertTrue($seconds == $this->forSeconds, 'Expected to sleep for ' . $seconds . ' seconds, but actually slept for ' . $this->forSeconds . ' seconds.');
+        PHPUnit::assertTrue($seconds == $this->forSeconds, 'Expected to sleep for ' . $seconds . ' seconds, but actually slept for ' . $this->forSeconds . ' seconds.');
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -74,9 +74,9 @@ class DelayFake extends DelayAbstract implements DelayContract
      */
     public function assertSleepForMiliseconds(int $miliseconds): static
     {
-	PHPUnit::assertTrue($miliseconds == $this->forMiliseconds, 'Expected to sleep for ' . $miliseconds . ' miliseconds, but actually slept for ' . $this->forMiliseconds . ' miliseconds.');
+        PHPUnit::assertTrue($miliseconds == $this->forMiliseconds, 'Expected to sleep for ' . $miliseconds . ' miliseconds, but actually slept for ' . $this->forMiliseconds . ' miliseconds.');
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -87,9 +87,9 @@ class DelayFake extends DelayAbstract implements DelayContract
      */
     public function assertSleepForMicroseconds(int $microseconds): static
     {
-	PHPUnit::assertTrue($microseconds == $this->forMicroseconds, 'Expected to sleep for ' . $microseconds . ' microseconds, but actually slept for ' . $this->forMicroseconds . ' microseconds.');
+        PHPUnit::assertTrue($microseconds == $this->forMicroseconds, 'Expected to sleep for ' . $microseconds . ' microseconds, but actually slept for ' . $this->forMicroseconds . ' microseconds.');
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -99,7 +99,7 @@ class DelayFake extends DelayAbstract implements DelayContract
      */
     protected function getEnvironment(): string
     {
-	return $this->fakeEnvironment ?? parent::getEnvironment();
+        return $this->fakeEnvironment ?? parent::getEnvironment();
     }
 
     /**
