@@ -13,15 +13,15 @@ abstract class TestCase extends BaseTestCase
 {
     protected function setUp(): void
     {
-	parent::setUp();
+        parent::setUp();
 
-	$this->app->bind(DelayContract::class, DelayFake::class);
+        $this->app->bind(DelayContract::class, DelayFake::class);
     }
 
     protected function getPackageProviders($app): array
     {
-	return [
-	    DelayServiceProvider::class,
-	];
+        return [
+            DelayServiceProvider::class,
+        ];
     }
 }

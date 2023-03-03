@@ -70,9 +70,9 @@ abstract class DelayAbstract
      */
     public function forSeconds(int $seconds): static
     {
-	$this->forSeconds = $seconds;
+        $this->forSeconds = $seconds;
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -83,9 +83,9 @@ abstract class DelayAbstract
      */
     public function forMiliseconds(int $miliseconds): static
     {
-	$this->forMiliseconds = $miliseconds;
+        $this->forMiliseconds = $miliseconds;
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -96,9 +96,9 @@ abstract class DelayAbstract
      */
     public function forMicroseconds(int $microseconds): static
     {
-	$this->forMicroseconds = $microseconds;
+        $this->forMicroseconds = $microseconds;
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -109,7 +109,7 @@ abstract class DelayAbstract
      */
     public function for(int $seconds): static
     {
-	return $this->forSeconds($seconds);
+        return $this->forSeconds($seconds);
     }
 
     /**
@@ -120,7 +120,7 @@ abstract class DelayAbstract
      */
     public function forMs(int $miliseconds): static
     {
-	return $this->forMiliseconds($miliseconds);
+        return $this->forMiliseconds($miliseconds);
     }
 
     /**
@@ -131,9 +131,9 @@ abstract class DelayAbstract
      */
     public function till(CarbonInterface $carbon): static
     {
-	$this->forSeconds = $carbon->diffInSeconds();
+        $this->forSeconds = $carbon->diffInSeconds();
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -144,9 +144,9 @@ abstract class DelayAbstract
      */
     public function environments(array $environments): static
     {
-	$this->environments = $environments;
+        $this->environments = $environments;
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -157,9 +157,9 @@ abstract class DelayAbstract
      */
     public function except(array $environments): static
     {
-	$this->exceptedEnvironments = $environments;
+        $this->exceptedEnvironments = $environments;
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -170,9 +170,9 @@ abstract class DelayAbstract
      */
     public function exceptWhen(Closure $callback): static
     {
-	$this->exceptCallbacks[] = $callback;
+        $this->exceptCallbacks[] = $callback;
 
-	return $this;
+        return $this;
     }
 
     /**
@@ -183,7 +183,7 @@ abstract class DelayAbstract
      */
     protected function getEnvironment(): string
     {
-	return (string)$this->app->environment();
+        return (string)$this->app->environment();
     }
 
     /**
@@ -193,25 +193,25 @@ abstract class DelayAbstract
      */
     protected function _shouldSleep(): bool
     {
-	$allowedEnvironments = $this->environments ?? [];
+        $allowedEnvironments = $this->environments ?? [];
 
-	if (!empty($this->exceptedEnvironments)) {
-	    $allowedEnvironments = array_filter($allowedEnvironments, fn($env) => in_array($env, $this->exceptedEnvironments));
-	}
+        if (!empty($this->exceptedEnvironments)) {
+            $allowedEnvironments = array_filter($allowedEnvironments, fn($env) => in_array($env, $this->exceptedEnvironments));
+        }
 
-	if (!empty($allowedEnvironments) && !in_array($this->getEnvironment(), $allowedEnvironments)) {
-	    return false;
-	} else if (!empty($this->exceptedEnvironments) && in_array($this->getEnvironment(), $this->exceptedEnvironments)) {
-	    return false;
-	}
+        if (!empty($allowedEnvironments) && !in_array($this->getEnvironment(), $allowedEnvironments)) {
+            return false;
+        } else if (!empty($this->exceptedEnvironments) && in_array($this->getEnvironment(), $this->exceptedEnvironments)) {
+            return false;
+        }
 
-	foreach ($this->exceptCallbacks as $callback) {
-	    if ($callback()) {
-		return false;
-	    }
-	}
+        foreach ($this->exceptCallbacks as $callback) {
+            if ($callback()) {
+                return false;
+            }
+        }
 
-	return true;
+        return true;
     }
 
     /**
@@ -219,9 +219,9 @@ abstract class DelayAbstract
      */
     public function __destruct()
     {
-	if ($this->_shouldSleep()) {
-	    $this->goToSleep();
-	}
+        if ($this->_shouldSleep()) {
+            $this->goToSleep();
+        }
     }
 
     /**
