@@ -19,6 +19,16 @@ composer require newman/laravel-delay
 
 ## :book: Usage
 
+### Using as Facade
+
+```php
+use Newman\LaravelDelay\Facades\Delay;
+
+// ...
+
+Delay::for(3);
+```
+
 ### Using as Trait
 
 ```php 

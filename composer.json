@@ -48,7 +48,10 @@
         "laravel": {
             "providers": [
                 "Newman\\LaravelDelay\\DelayServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "Delay": "Newman\\LaravelDelay\\Facades\\Delay"
+            }
         }
     },
     "minimum-stability": "dev",
