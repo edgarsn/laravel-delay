@@ -2,6 +2,9 @@
 
 Package which helps you to delay (sleep) your code for some time.
 
+## Note before continuing
+As of Laravel version 10.10.0 you may not need this package anymore in favour of in-built helper - https://laravel.com/docs/10.x/helpers#sleep
+
 ## Installation
 
 ### Requirements
